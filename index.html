@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人养老金节税计算器</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="calculator">
+        <h1>个人养老金节税计算器</h1>
+        <div class="input-group">
+            <label for="income">年收入（元）：</label>
+            <input type="number" id="income" placeholder="请输入年收入">
+        </div>
+        <div class="input-group">
+            <label for="pension">养老金缴纳金额（元）：</label>
+            <input type="number" id="pension" placeholder="请输入养老金缴纳金额">
+        </div>
+        <div class="input-group">
+            <label for="insurance">五险一金（元）：</label>
+            <input type="number" id="insurance" placeholder="请输入五险一金金额">
+        </div>
+        <div class="input-group">
+            <label for="deduction">附加扣除（元）：</label>
+            <input type="number" id="deduction" placeholder="请输入附加扣除金额">
+        </div>
+        <button onclick="calculate()">计算</button>
+        <div class="results">
+            <h2>计算结果</h2>
+            <p>应纳税所得额：<span id="taxable-income">0</span> 元</p>
+            <p>应缴税额：<span id="tax">0</span> 元</p>
+            <p>节税金额：<span id="tax-saving">0</span> 元</p>
+        </div>
+    </div>
+    <div class="info-section">
+        <h2>个人所得税税率表（综合所得适用）</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>级数</th>
+                    <th>全年应纳税所得额</th>
+                    <th>税率（%）</th>
+                    <th>速算扣除数</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>不超过36,000元</td>
+                    <td>3</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>超过36,000元至144,000元</td>
+                    <td>10</td>
+                    <td>2,520</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>超过144,000元至300,000元</td>
+                    <td>20</td>
+                    <td>16,920</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>超过300,000元至420,000元</td>
+                    <td>25</td>
+                    <td>31,920</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>超过420,000元至660,000元</td>
+                    <td>30</td>
+                    <td>52,920</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>超过660,000元至960,000元</td>
+                    <td>35</td>
+                    <td>85,920</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>超过960,000元</td>
+                    <td>45</td>
+                    <td>181,920</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>专业术语说明</h2>
+        <ul>
+            <li><strong>应纳税所得额</strong>：年收入 - 起征点（60,000元） - 五险一金 - 附加扣除</li>
+            <li><strong>应缴税额</strong>：根据应纳税所得额和对应税率计算得出</li>
+            <li><strong>节税金额</strong>：养老金缴纳金额 × 适用税率</li>
+            <li><strong>五险一金</strong>：养老保险、医疗保险、失业保险、工伤保险、生育保险和住房公积金</li>
+            <li><strong>附加扣除</strong>：包括子女教育、继续教育、大病医疗、住房贷款利息或住房租金、赡养老人等专项附加扣除</li>
+        </ul>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
